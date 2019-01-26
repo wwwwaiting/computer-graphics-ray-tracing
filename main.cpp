@@ -18,9 +18,10 @@ int main(int argc, char * argv[])
   Camera camera;
   std::vector< std::shared_ptr<Object> > objects;
   std::vector< std::shared_ptr<Light> > lights;
+  
   // Read a camera and scene description from given .json file
   read_json(
-    argc<=1?"../data/sphere-and-plane.json":argv[1],
+    argc<=1?".."+PATH_SEPARATOR+"data"+ PATH_SEPARATOR+"sphere-and-plane.json":argv[1],
     camera,
     objects,
     lights);
