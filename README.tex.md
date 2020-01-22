@@ -2,7 +2,7 @@
 
 > **To get started:** Clone this repository and its submodule using
 > 
->     git clone --recursive http://github.com/dilevin/computer-graphics-ray-tracing.git
+>     git clone --recursive http://github.com/alecjacobson/computer-graphics-ray-tracing.git
 >
 > **Do not fork:** Clicking "Fork" will create a _public_ repository. If you'd like to use GitHub while you work on your assignment, then mirror this repo as a new _private_ repository: https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private
 
@@ -11,7 +11,7 @@
 ### Read Sections 4.5-4.9 of _Fundamentals of Computer Graphics (4th Edition)_.
 
 Many of the classes and functions of this assignment are borrowed or adapted
-from the previous [ray casting assignment](https://github.com/dilevin/computer-graphics-ray-casting).
+from the previous [ray casting assignment](https://github.com/alecjacobson/computer-graphics-ray-casting).
 
 Unlike that assignment, this [ray
 tracer](https://en.wikipedia.org/wiki/Ray_tracing_(graphics)) will produce
@@ -32,7 +32,7 @@ vectors, but _also_ RGB colors. For all computation (before finally writing the
 represent no light and `1` will represent the brightest color we can display.
 
 [Floating point
-numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) <img src="/tex/66937766ec704b70da73bb7d35a355ad.svg?invert_in_darkmode&sanitize=true" align=middle width=12.785434199999989pt height=22.831056599999986pt/> [real
+numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) $\ne $ [real
 numbers](https://en.wikipedia.org/wiki/Real_number), they don't even cover all
 of the [rational numbers](https://en.wikipedia.org/wiki/Rational_number). This
 creates a number of challenges in numerical method and rendering is not immune
@@ -46,8 +46,8 @@ surface (i.e., false intersections due to numerical error).
 > consider rational coefficients? What if we consider a sphere instead of a
 > plane?
 >
-> **Hint:** Can we _exactly_ represent <img src="/tex/70118eb82d4643bd42647f21941136af.svg?invert_in_darkmode&sanitize=true" align=middle width=24.657628049999992pt height=24.65753399999998pt/> as a `double`? Can we represent
-> <img src="/tex/71486f265f83bc1e3d2b6f67704bcc23.svg?invert_in_darkmode&sanitize=true" align=middle width=21.91788224999999pt height=28.511366399999982pt/> as a rational?
+> **Hint:** Can we _exactly_ represent $1/3$ as a `double`? Can we represent
+> $\sqrt{2}$ as a rational?
 
 ### Dynamic Range & Burning
 
@@ -57,7 +57,7 @@ the light reflected of some part of an objects is the _sum_ of contributions
 from light coming in all directions (e.g., from all light sources). If there are
 many bright lights in the scene and the object has a bright color, it is easy
 for this sum to add up to more than one. At first this seems counter-intuitive:
-How can we exceed 100% light? But this premise is false, the <img src="/tex/f58ed17486d1735419372f2b7d091779.svg?invert_in_darkmode&sanitize=true" align=middle width=21.00464354999999pt height=21.18721440000001pt/> does not mean
+How can we exceed 100% light? But this premise is false, the $1.0$ does not mean
 the physically brightest possible light in the world, but rather the brightest
 light our screen can display (or the brightest color we can store in our chosen
 image format). [High dynamic range (HDR)
@@ -87,8 +87,8 @@ regions where the collected light has been clamped to \[1,1,1\]
 
 There are many ways to "multiply" two vectors. One way is to compute the
 [component-wise](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
-multiplication: <img src="/tex/22f21af20c3e7f253a35c65bed98680e.svg?invert_in_darkmode&sanitize=true" align=middle width=65.53603979999998pt height=22.831056599999986pt/> or in index notation:
-<img src="/tex/59064857cf8a4117765652ff2be6d992.svg?invert_in_darkmode&sanitize=true" align=middle width=60.371878049999985pt height=22.831056599999986pt/>. That is, multiply each corresponding component and store the
+multiplication: $\mathbf{c} = \mathbf{a} \circ \mathbf{b}$ or in index notation:
+$c_i = a_i b_i$. That is, multiply each corresponding component and store the
 result in the corresponding component of the output vector. Using the Eigen
 library this is accomplished by telling Eigen to treat each of the vectors as
 "array" (where [matrix multiplication](), [dot product](), [cross product]()
@@ -107,7 +107,7 @@ The `.matrix()` converts the "array" view of the vector back to a "matrix"
 Eigen also has a built in way to normalize a vector (divide a vector by its
 length): `a.normalized()`.
 
-C++ standard library includes a value for <img src="/tex/8860040216a2e61c344544a77b5cd2ce.svg?invert_in_darkmode&sanitize=true" align=middle width=16.43840384999999pt height=14.15524440000002pt/> via `#include <limits>`. For
+C++ standard library includes a value for $\infty $ via `#include <limits>`. For
 example, for `double` floating point, use `std::numeric_limits<double>::infinity()`.
 
 ## Tasks
