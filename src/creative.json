@@ -9,9 +9,125 @@
     "width": 1.7777777778
   },
   "materials": [
+    {
+      "name": "part",
+      "ka": [0.1, 0.1, 0.2],
+      "kd": [0.66, 0.66, 0.2],
+      "ks": [0.05,0.05,0.1],
+      "km": [0.2,0.2,0.2],
+      "phong_exponent": 20
+    },
+    {
+      "name": "eye",
+      "ka": [1.0, 0.7, 0.2],
+      "kd": [0.01, 0.01, 0.01],
+      "ks": [0.8,0.8,0.8],
+      "km": [0.05,0.05,0.05],
+      "phong_exponent": 1000
+    },
+    {
+      "name": "nose",
+      "ka": [0.1, 0.1, 0.2],
+      "kd": [1, 0.1, 0.1],
+      "ks": [0.05,0.05,0.1],
+      "km": [0.2,0.2,0.2],
+      "phong_exponent": 20
+    },
+    {
+      "name": "mouth",
+      "ka": [1.0, 0.7, 0.2],
+      "kd": [1.0, 0.7, 0.2],
+      "ks": [0.8,0.8,0.8],
+      "km": [0.05,0.05,0.05],
+      "phong_exponent": 20
+    },
+    {
+      "name": "button",
+      "ka": [0.1, 0.1, 0.2],
+      "kd": [0.5, 0.6, 0.8],
+      "ks": [0.05,0.05,0.1],
+      "km": [0.2,0.2,0.2],
+      "phong_exponent": 30
+    },
+    {
+      "name": "Lambertian blue",
+      "ka": [0.2, 0.3, 0.8],
+      "kd": [0.2, 0.3, 0.8],
+      "ks": [0.1,0.1,0.1],
+      "km": [0.3,0.3,0.3],
+      "phong_exponent": 20
+    }
   ],
   "lights":[
+    {
+      "type": "directional",
+      "direction": [0,0,-1],
+      "color": [0.8,0.8,0.8]
+    },
+    {
+      "type": "point",
+      "position": [-10,20,10],
+      "color": [0.8,0.8,0.8]
+    }
   ],
+
   "objects": [
+    {
+      "type": "sphere",
+      "material": "part",
+      "center": [0,0.4,-1],
+      "radius": 0.4
+    },
+    {
+      "type": "sphere",
+      "material": "part",
+      "center": [0,-0.4,-1],
+      "radius": 0.55
+    },
+    {
+      "type": "sphere",
+      "material": "eye",
+      "center": [-0.15,0.45,-0.65],
+      "radius": 0.05
+    },
+    {
+      "type": "sphere",
+      "material": "eye",
+      "center": [0.15,0.45,-0.65],
+      "radius": 0.05
+    },
+    {
+      "type": "sphere",
+      "material": "nose",
+      "center": [0,0.32,0],
+      "radius": 0.032
+    },
+    {
+      "type": "triangle",
+      "material": "mouth",
+      "corners": [
+        [-0.055,0.28,-0.6],
+        [0.055,0.28,-0.6],
+        [0,0.2,-0.6]
+      ]
+    },
+    {
+      "type": "sphere",
+      "material": "button",
+      "center": [0,-0.1,-0.45],
+      "radius": 0.03
+    },
+    {
+      "type": "sphere",
+      "material": "button",
+      "center": [0,-0.3,-0.45],
+      "radius": 0.03
+    },
+    {
+      "type": "plane",
+      "material": "Lambertian blue",
+      "point": [0,-0.8,0],
+      "normal": [0,1.5,0]
+    }
   ]
 }
